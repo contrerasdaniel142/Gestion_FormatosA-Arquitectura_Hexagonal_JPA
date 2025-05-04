@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "bedfd388-4d6f-497e-bb01-a3c784c26f45",
+		"name": "Pruebas Exitosas - Taller Final Back",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17767819",
+		"_collection_link": "https://lunar-equinox-599910.postman.co/workspace/Team-Workspace~48d6f04a-8fd3-4ad3-85a0-7fa08dd46b94/collection/17767819-bedfd388-4d6f-497e-bb01-a3c784c26f45?action=share&source=collection_link&creator=17767819"
+	},
+	"item": [
+		{
+			"name": "Crear Formato A 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"titulo\": \"Sistema de Reservas de Laboratorios\",\n  \"objetivoGeneral\": \"Desarrollar una aplicaci\\u00f3n web para reservas de laboratorios\",\n  \"objetivosEspecificos\": \"Analizar requisitos; Dise\\u00f1ar arquitectura; Implementar sistema\",\n  \"nombreEstudiante1\": \"Juan P\\u00e9rez\",\n  \"nombreEstudiante2\": \"Laura G\\u00f3mez\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/formato_a/docente/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"formato_a",
+						"docente",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Formato A 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"titulo\": \"Sistema de Gestión de Eventos Académicos\",\n  \"objetivoGeneral\": \"Desarrollar una plataforma para la gestión de eventos universitarios\",\n  \"objetivosEspecificos\": \"Definir necesidades; Crear interfaz de usuario; Implementar funcionalidades\",\n  \"nombreEstudiante1\": \"Carlos Mendoza\",\n  \"nombreEstudiante2\": \"Ana Ramírez\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/formato_a/docente/10\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"formato_a",
+						"docente",
+						"10\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Formato A 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"titulo\": \"Aplicación de Seguimiento de Proyectos de Investigación\",\n  \"objetivoGeneral\": \"Facilitar el seguimiento y evaluación de proyectos de investigación universitarios\",\n  \"objetivosEspecificos\": \"Identificar requisitos; Diseñar sistema de evaluación; Integrar herramientas de análisis\",\n  \"nombreEstudiante1\": \"Diego López\",\n  \"nombreEstudiante2\": \"María Fernández\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/formato_a/docente/9\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"formato_a",
+						"docente",
+						"9\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Formatos A por Correo Docente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/formato_a/docente?correoDocente=danielgarcia@unicacua.edu.co",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"formato_a",
+						"docente"
+					],
+					"query": [
+						{
+							"key": "correoDocente",
+							"value": "danielgarcia@unicacua.edu.co"
+						},
+						{
+							"key": "correoDocente",
+							"value": "camilatorres@unicacua.edu.co",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar por id y fechas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaInicio\": \"2025-03-03\", \r\n    \"fechaFin\": \"2025-10-03\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/formato_a/docente/10/rango",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"formato_a",
+						"docente",
+						"10",
+						"rango"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enviar Formato A a evaluacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/estado/formato_a/enviar_para_evaluacion/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"estado",
+						"formato_a",
+						"enviar_para_evaluacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aprobar Formato A",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/estado/formato_a/aprobar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"estado",
+						"formato_a",
+						"aprobar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rechazar Formato A",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/estado/formato_a/rechazar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"estado",
+						"formato_a",
+						"rechazar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Observación para Formato A",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Primera observaci\\u00f3n creada con \\u00e9xito\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/observacion/formato_a/1?idsDocentes=1&idsDocentes=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"observacion",
+						"formato_a",
+						"1"
+					],
+					"query": [
+						{
+							"key": "idsDocentes",
+							"value": "1"
+						},
+						{
+							"key": "idsDocentes",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Observaciones por Formato A",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/observacion/formato_a/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"observacion",
+						"formato_a",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Docentes por grupo y patron",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/docente/listar/grupo?grupo=grupo3&patron=\"\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"docente",
+						"listar",
+						"grupo"
+					],
+					"query": [
+						{
+							"key": "grupo",
+							"value": "grupo3"
+						},
+						{
+							"key": "patron",
+							"value": "\"\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Docentes Comite",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/docente/listar/comite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"docente",
+						"listar",
+						"comite"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
