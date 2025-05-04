@@ -1,0 +1,108 @@
+# Archivos de configuración y metadatos de IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# Archivos temporales y de sistema
+*.sw?
+*~
+.#*
+.*.md.html
+.DS_Store
+.attach_pid*
+
+# Archivos de compilación y dependencias
+*.jar
+*.war
+*.nar
+*.ear
+target/
+lib/
+bin/
+build/
+out/
+
+# Exclusión específica de ciertas rutas de compilación
+!/**/src/**/bin
+!/**/src/**/build
+
+# Archivos específicos de Maven y Gradle
+dependency-reduced-pom.xml
+.flattened-pom.xml
+.gradle/
+.gradletasknamecache
+.sts4-cache
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Archivos de configuración y manifiestos
+MANIFEST.MF
+manifest.yml
+interpolated*.xml
+
+# Archivos generados por herramientas y ejecución
+_site/
+activemq-data
+build.log
+dump.rdb
+overridedb.*
+secrets.yml
+.git-hooks/
+
+# Archivos y configuración de Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders/
+.externalToolBuilders/
+*.launch
+.factorypath
+.buildpath
+.target
+.apt_generated/
+
+# Archivos específicos de Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Ignorar VS Code
+.vscode/
+
+# Dependencias de Node.js
+node_modules/
+
+# Archivos específicos de NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/scratch
+
+# Otros archivos que podrían no ser necesarios
+*.sublime-*
+README.html
+.exercism
