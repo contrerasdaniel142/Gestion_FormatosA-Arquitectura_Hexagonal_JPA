@@ -14,11 +14,11 @@ public class MessageConfiguration {
 
     @Bean
     public LocaleResolver localeResolver() {
-
         SessionLocaleResolver localResolver = new SessionLocaleResolver();
-        localResolver.setDefaultLocale(Locale.US);
+        localResolver.setDefaultLocale(Locale.forLanguageTag("es"));
         return localResolver;
     }
+
 
     @Bean(name = "messageResourceSB")
     public MessageSource messageResource() {

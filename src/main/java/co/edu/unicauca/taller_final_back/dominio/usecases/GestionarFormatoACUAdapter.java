@@ -28,7 +28,7 @@ public class GestionarFormatoACUAdapter implements GestionarFormatoACUIntPort {
         FormatoA objFormatoACreado = null;
         if (this.objGestionarFormatoAGateway.existeTituloFormatoA(objFormatoA.getTitulo())){
             this.objFormateadorResultados
-                    .retornarRespuestaErrorReglaDeNegocio("{peticion.titulo.existe}");
+                    .retornarRespuestaErrorEntidadYaExiste("{peticion.titulo.existe}");
         }else{
             if (!this.objGestionarDocenteGateway.existeDocentePorId(idDocente)) {
                 this.objFormateadorResultados
