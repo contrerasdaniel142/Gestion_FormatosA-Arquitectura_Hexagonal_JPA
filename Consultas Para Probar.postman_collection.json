@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "bedfd388-4d6f-497e-bb01-a3c784c26f45",
-		"name": "Pruebas Exitosas - Taller Final Back",
+		"name": "Consultas Para Probar",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17767819",
 		"_collection_link": "https://lunar-equinox-599910.postman.co/workspace/Team-Workspace~48d6f04a-8fd3-4ad3-85a0-7fa08dd46b94/collection/17767819-bedfd388-4d6f-497e-bb01-a3c784c26f45?action=share&source=collection_link&creator=17767819"
@@ -15,11 +15,17 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"titulo\": \"Sistema de Reservas de Laboratorios\",\n  \"objetivoGeneral\": \"Desarrollar una aplicaci\\u00f3n web para reservas de laboratorios\",\n  \"objetivosEspecificos\": \"Analizar requisitos; Dise\\u00f1ar arquitectura; Implementar sistema\",\n  \"nombreEstudiante1\": \"Juan P\\u00e9rez\",\n  \"nombreEstudiante2\": \"Laura G\\u00f3mez\"\n}"
+					"raw": "{\n  \"titulo\": \"Sistema de Reservas de Laboratorios\",\n  \"objetivoGeneral\": \"Desarrollar una aplicación web para reservas de laboratorios\",\n  \"objetivosEspecificos\": \"Analizar requisitos; Diseñar arquitectura; Implementar sistema\",\n  \"nombreEstudiante1\": \"Juan Pérez\",\n  \"nombreEstudiante2\": \"Laura Gómez\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:9090/api/formato_a/docente/10",
@@ -310,7 +316,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9090/api/docente/listar/grupo?grupo=grupo3&patron=\"\"",
+					"raw": "http://localhost:9090/api/docente/listar/grupo?grupo=grupo3&patron=alv",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -329,7 +335,7 @@
 						},
 						{
 							"key": "patron",
-							"value": "\"\""
+							"value": "alv"
 						}
 					]
 				}
