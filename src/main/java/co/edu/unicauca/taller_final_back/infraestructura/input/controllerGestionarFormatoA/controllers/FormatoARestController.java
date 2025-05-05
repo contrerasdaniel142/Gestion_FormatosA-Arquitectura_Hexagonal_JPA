@@ -6,14 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unicauca.taller_final_back.aplicacion.input.GestionarFormatoACUIntPort;
 import co.edu.unicauca.taller_final_back.dominio.models.FormatoA;
-import co.edu.unicauca.taller_final_back.dominio.models.FormatoPPA;
-import co.edu.unicauca.taller_final_back.dominio.models.FormatoTIA;
 import co.edu.unicauca.taller_final_back.dominio.models.RangoFechas;
 import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarFormatoA.DTOAnswer.FormatoADTORespuesta;
 import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarFormatoA.DTOAnswer.InformacionFormatoARespuesta;
 import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarFormatoA.DTOPetition.FormatoADTOPeticion;
-import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarFormatoA.DTOPetition.FormatoPPADTOPeticion;
-import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarFormatoA.DTOPetition.FormatoTIADTOPeticion;
 import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarFormatoA.DTOPetition.RangoFechasDTOPeticion;
 import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarFormatoA.mappers.FormatoAMapperInfraestructuraDominio;
 import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarObservacion.DTOAnswer.ObservacionesDTORespuesta;

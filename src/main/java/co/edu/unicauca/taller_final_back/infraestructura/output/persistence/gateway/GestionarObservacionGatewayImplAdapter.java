@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,10 +13,12 @@ import co.edu.unicauca.taller_final_back.aplicacion.output.GestionarObservacionG
 import co.edu.unicauca.taller_final_back.dominio.models.Observacion;
 import co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestionarObservacion.DTOAnswer.ObservacionesDTORespuesta;
 import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.entitys.DocenteEntity;
+import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.entitys.EvaluacionEntity;
 import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.entitys.FormatoAEntity;
 import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.entitys.ObservacionEntity;
 import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.mappers.ObservacionMapperPersistencia;
 import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.repositories.DocenteRepositoryInt;
+import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.repositories.EvaluacionRepositoryInt;
 import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.repositories.FormatoARepositoryInt;
 import lombok.RequiredArgsConstructor;
 
@@ -24,24 +27,34 @@ import lombok.RequiredArgsConstructor;
 public class GestionarObservacionGatewayImplAdapter implements GestionarObservacionGatewayIntPort{
     private final DocenteRepositoryInt objDocenteRepository;
     private final FormatoARepositoryInt objFormatoARepository;
+    private final EvaluacionRepositoryInt objEvaluacionRepository;
     private final ObservacionMapperPersistencia objMapper;
 
+    // Crear Observacion
     @Override
     @Transactional
     public Observacion guardarObservacion(Observacion observacion, List<Integer> idsDocente, Integer idFormatoA){
-        ObservacionEntity nuevaObservacion = new ObservacionEntity();
-        nuevaObservacion.setObservacion(observacion.getObservacion());
-        FormatoAEntity formatoA = this.objFormatoARepository.findByIdFormatoA(idFormatoA);
-        formatoA.getEvaluaciones().size();
-        for (Integer id : idsDocente) {
-            nuevaObservacion.agregarDocente(this.objDocenteRepository.findByIdDocente(id));
+        Observacion observacionGuardada = null;
+        Optional<Integer> optionalIdEvaluacion = this.objFormatoARepository.obtenerIdUltimaEvaluacionPorFormatoA(idFormatoA);
+        if(optionalIdEvaluacion.isPresent()){
+
+            Integer idEvaluacion = optionalIdEvaluacion.get();
+            EvaluacionEntity evaluacion = this.objEvaluacionRepository.findByIdEvaluacion(idEvaluacion);
+
+            ObservacionEntity nuevaObservacion = new ObservacionEntity();
+            nuevaObservacion.setObservacion(observacion.getObservacion());
+            for (Integer id : idsDocente) {
+                nuevaObservacion.agregarDocente(this.objDocenteRepository.findByIdDocente(id));
+            }
+            
+            evaluacion.addObservacion(nuevaObservacion);
+            EvaluacionEntity evaluacionGuardada = this.objEvaluacionRepository.save(evaluacion);
+            observacionGuardada = this.objMapper.mappearDeEntityAObservacion(evaluacionGuardada.getUltimaObservacion());
         }
-        formatoA.getEvaluacionActual().addObservacion(nuevaObservacion);
-        FormatoAEntity formatoActualizado = this.objFormatoARepository.save(formatoA);
-        ObservacionEntity observacionGuardada = formatoActualizado.getEvaluacionActual().getUltimaObservacion();
-        return this.objMapper.mappearDeEntityAObservacion(observacionGuardada);
+        return observacionGuardada;
     }
 
+    // Listar Observaciones de un formato A
     @Override
     @Transactional(readOnly = true)
     public ObservacionesDTORespuesta listarPorFormatoA(Integer idFormatoA){

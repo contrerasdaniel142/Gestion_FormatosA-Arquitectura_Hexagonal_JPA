@@ -22,7 +22,7 @@ INSERT INTO Docentes (idDocente, nombres_docente, apellidos_docente, nombre_grup
 
 INSERT INTO Docentes (idDocente, nombres_docente, apellidos_docente, nombre_grupo, correo) VALUES (7, 'Pedro', 'Alvarez', 'Grupo3', 'pedroalvarez@unicacua.edu.co');
 
-INSERT INTO Docentes (idDocente, nombres_docente, apellidos_docente, nombre_grupo, correo) VALUES (8, 'Sofia', 'Castro', 'Grupo3', 'sofiacastro@unicacua.edu.co');
+INSERT INTO Docentes (idDocente, nombres_docente, apellidos_docente, nombre_grupo, correo) VALUES (8, 'Sofia', 'Alvino', 'Grupo3', 'sofiacastro@unicacua.edu.co');
 
 INSERT INTO Docentes (idDocente, nombres_docente, apellidos_docente, nombre_grupo, correo) VALUES (9, 'Sofia', 'Torres', 'Grupo3', 'camilatorres@unicacua.edu.co');
 

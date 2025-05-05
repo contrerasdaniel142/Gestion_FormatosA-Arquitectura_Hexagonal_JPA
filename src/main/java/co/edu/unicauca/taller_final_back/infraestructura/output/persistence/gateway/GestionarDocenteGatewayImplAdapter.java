@@ -40,6 +40,8 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
         return this.objDocenteRepository.existsByIdDocenteNotIn(idsDocente);
     }
 
+
+    // Listar Miembros del comite (General)
     @Override
     @Transactional(readOnly = true)
     public List<DocenteRolDTORespuesta> listarPorRol(RolDocenteEnum rolDocenteEnum){
@@ -62,11 +64,12 @@ public class GestionarDocenteGatewayImplAdapter implements GestionarDocenteGatew
         return listaDocentesRol;
     }
 
+    // Listar Docentes por grupo y patron ( No funciona )
     @Override
     @Transactional(readOnly = true)
     public List<Docente> listarPorGrupoYPatronAscendente(String grupo, String patron) {
         List<DocenteEntity> listaObtenida = objDocenteRepository
-            .findByNombreGrupoAndApellidosDocenteStartingWithIgnoreCaseOrderByApellidosDocenteAsc(grupo, patron+"%");
+            .findByNombreGrupoAndApellidosDocenteStartingWithIgnoreCaseOrderByApellidosDocenteAsc(grupo, patron);
 
         return this.objMapper.mappearListaDeEntityADocente(listaObtenida);
     }

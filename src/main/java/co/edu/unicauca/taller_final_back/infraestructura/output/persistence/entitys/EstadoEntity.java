@@ -3,7 +3,6 @@ package co.edu.unicauca.taller_final_back.infraestructura.output.persistence.ent
 import java.time.LocalDate;
 
 import co.edu.unicauca.taller_final_back.dominio.enums.EstadoFormatoAEnum;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

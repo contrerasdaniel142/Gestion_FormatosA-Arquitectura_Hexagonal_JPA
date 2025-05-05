@@ -44,7 +44,7 @@ public class FormatoAEntity {
     private EstadoEntity objEstado;
 
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objFormatoA", cascade = {CascadeType.PERSIST,CascadeType.REMOVE, CascadeType.MERGE})
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "objFormatoA", cascade = {CascadeType.PERSIST,CascadeType.REMOVE, CascadeType.MERGE})
     private List<EvaluacionEntity> evaluaciones;
 
     @ManyToOne(cascade = {CascadeType.MERGE})

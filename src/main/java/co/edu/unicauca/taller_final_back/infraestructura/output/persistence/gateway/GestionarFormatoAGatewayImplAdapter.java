@@ -51,20 +51,21 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
         return this.objFormatoARepository.existsById(idFormatoA);
     }
 
+
+    // Crear Formato A
     @Override
     @Transactional
     public FormatoA guardarFormatoA(FormatoA formatoA, Integer idDocente) {
         FormatoA resultado = null;
-        String nombreRol = RolDocenteEnum.DIRECTOR_TRABAJO_GRADO.toString();
+        String nombreRolDirector = RolDocenteEnum.DIRECTOR_TRABAJO_GRADO.toString();
 
         Optional<DocenteEntity> optionalDocente = objDocenteRepository.findByIdWithHistoricos(idDocente);
 
         if (optionalDocente.isPresent()) {
             DocenteEntity objDocente = optionalDocente.get();
 
-            // Asigna el rol si no lo tiene activo
-            if (!objHistoricoRepository.docenteTieneRolActivo(idDocente, nombreRol)) {
-                Optional<RolEntity> optionalRol = objRolRepositoy.findByRolAsignado(nombreRol);
+            if (!objHistoricoRepository.docenteTieneRolActivo(idDocente, nombreRolDirector)) {
+                Optional<RolEntity> optionalRol = objRolRepositoy.findByRolAsignado(nombreRolDirector);
                 if(!optionalRol.isPresent()){
                     RolEntity rolEntity = optionalRol.get();
                     HistoricoEntity historico = new HistoricoEntity();
@@ -72,10 +73,8 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
                 }
             }
 
-            // Mapear al subtipo correspondiente
             FormatoAEntity formatoAEntity = this.objMapper.mappearDeFormatoAAEntity(formatoA);
 
-            // Guarda el docente para que el cascada guarde el formato y el historico
             if (formatoAEntity != null) {
                 formatoAEntity.agregarDocente(objDocente);
                 
@@ -84,7 +83,6 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
                 Optional<FormatoAEntity> ultimoFormato = docenteGuardado.getFormatosA().stream()
                     .reduce((primero, segundo) -> segundo);
 
-                // Toma el ultimo FormatoA, formula el estado, lo guarda Y lo mapea al subtipo corresponidente
                 if (ultimoFormato.isPresent()) {
                     FormatoAEntity formatoGuardado = ultimoFormato.get();
                     formatoGuardado.formularEstado();
@@ -97,6 +95,8 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
         return resultado;
     }
 
+
+    // Consultar Formatos A Por docente
     @Override
     @Transactional(readOnly = true)
     public List<ObservacionesDTORespuesta> listarFormatosAPorDocente(String correoDocente) {
@@ -155,6 +155,7 @@ public class GestionarFormatoAGatewayImplAdapter implements GestionarFormatoAGat
     }
 
     
+    // Consultar Formatos A por Docente
     @Override
     @Transactional(readOnly = true)
     public List<InformacionFormatoARespuesta> listarFormatosAConObservacionesPorDocenteEntreFechas(Integer idDocente, RangoFechas rangoFechas) {

@@ -2,6 +2,7 @@ package co.edu.unicauca.taller_final_back.infraestructura.output.persistence.rep
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -45,13 +46,12 @@ public interface FormatoARepositoryInt extends JpaRepository<FormatoAEntity, Int
 
     //Punto 2 - 3
     @Query("""
-        SELECT e.idEvaluacion 
-        FROM EvaluacionEntity e 
-        WHERE e.objFormatoA.idFormatoA = :idFormatoA 
+        SELECT e.idEvaluacion
+        FROM EvaluacionEntity e
+        WHERE e.objFormatoA.idFormatoA = :idFormatoA
         ORDER BY e.fechaRegistroConcepto DESC
+        LIMIT 1
     """)
-    List<Integer> obtenerIdUltimaEvaluacionPorFormatoA(
-        @Param("idFormatoA") Integer idFormatoA
-    );
+    Optional<Integer> obtenerIdUltimaEvaluacionPorFormatoA(@Param("idFormatoA") Integer idFormatoA);
     
 }
