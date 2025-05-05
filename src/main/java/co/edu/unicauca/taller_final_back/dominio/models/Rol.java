@@ -8,5 +8,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor @NoArgsConstructor
 public class Rol {
     private String rolAsignado;
-
 }
