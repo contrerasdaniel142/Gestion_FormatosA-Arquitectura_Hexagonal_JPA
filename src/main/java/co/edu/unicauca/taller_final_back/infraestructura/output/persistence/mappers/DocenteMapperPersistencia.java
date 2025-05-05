@@ -10,4 +10,5 @@ import co.edu.unicauca.taller_final_back.infraestructura.output.persistence.enti
 @Mapper(componentModel = "spring")
 public interface DocenteMapperPersistencia {
     List<Docente> mappearListaDeEntityADocente(List<DocenteEntity> listaDocentes);
+    Docente mappearEntityADocente(DocenteEntity docenteEntity);
 }
