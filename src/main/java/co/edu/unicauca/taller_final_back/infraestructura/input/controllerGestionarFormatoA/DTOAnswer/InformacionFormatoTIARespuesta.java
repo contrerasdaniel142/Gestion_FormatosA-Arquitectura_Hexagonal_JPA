@@ -2,9 +2,11 @@ package co.edu.unicauca.taller_final_back.infraestructura.input.controllerGestio
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
 public class InformacionFormatoTIARespuesta extends InformacionFormatoARespuesta {
     private String nombreEstudiante1;
     private String nombreEstudiante2;

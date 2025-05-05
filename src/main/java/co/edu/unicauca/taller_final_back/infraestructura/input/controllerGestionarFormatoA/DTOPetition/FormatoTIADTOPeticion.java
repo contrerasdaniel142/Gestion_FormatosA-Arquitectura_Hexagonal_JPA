@@ -4,9 +4,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
+@NoArgsConstructor
 public class FormatoTIADTOPeticion extends FormatoADTOPeticion{
     @NotNull(message = "{formatoTIA.estudiante1.emply}") @Size(min = 5, max = 100, message = "{formatoTIA.estudiante1.size}")
     private String nombreEstudiante1;

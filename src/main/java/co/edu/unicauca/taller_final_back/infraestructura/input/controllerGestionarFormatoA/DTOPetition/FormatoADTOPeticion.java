@@ -5,10 +5,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
-@AllArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 public class FormatoADTOPeticion {
     @NotNull(message = "{formatoA.titulo.emply}") @Size(min = 5,max = 100, message = "{formato.Atitulo.size}")
     private String titulo;
