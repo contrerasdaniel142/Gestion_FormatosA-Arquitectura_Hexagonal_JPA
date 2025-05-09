@@ -11,9 +11,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class FormatoPPADTOPeticion extends FormatoADTOPeticion {
-    @NotNull(message = "{formatoPPA.asesor.emply}") @Size(min = 5,max = 100, message = "{formatoAasesor.size}")
+    @NotNull(message = "{formatoPPA.asesor.emply}") @Size(min = 5,max = 100, message = "{formatoPPA.asesor.size}")
     private String nombreAsesor;
-    @NotNull(message = "{formatoPPA.estudiante.emply}") @Size(min = 5,max = 100, message = "{formatoAestudiante.size}")
+    @NotNull(message = "{formatoPPA.estudiante.emply}") @Size(min = 5,max = 100, message = "{formatoPPA.estudiante.size}")
     private String nombreEstudiante;
     @NotNull(message = "{formatoPPA.rutaCarta.emply}") @Size(min = 5, max = 255, message = "{formatoPPA.rutaCarta.size}")
     private String rutaCartAceptacion;

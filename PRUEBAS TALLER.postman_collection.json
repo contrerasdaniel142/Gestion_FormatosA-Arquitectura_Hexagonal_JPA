@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "37a39317-8646-4424-b06f-b64f7ef4fbf7",
+		"name": "PRUEBAS TALLER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26815590"
+	},
+	"item": [
+		{
+			"name": "VALIDACIONES AUTOMÁTICAS",
+			"item": [
+				{
+					"name": "Va size",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"\",\r\n  \"objetivoGeneral\": \"Desarrollar una aplicaci\\u00f3n web para reservas de laboratorios\",\r\n  \"objetivosEspecificos\": \"Analizar requisitos; Dise\\u00f1ar arquitectura; Implementar sistema\",\r\n  \"nombreEstudiante1\": \"Juan P\\u00e9rez\",\r\n  \"nombreEstudiante2\": \"Laura G\\u00f3mez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/formato_a/docente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Va NotNull",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": null,\r\n  \"objetivoGeneral\": \"Desarrollar una aplicaci\\u00f3n web para reservas de laboratorios\",\r\n  \"objetivosEspecificos\": \"Analizar requisitos; Dise\\u00f1ar arquitectura; Implementar sistema\",\r\n  \"nombreEstudiante1\": \"Juan P\\u00e9rez\",\r\n  \"nombreEstudiante2\": \"Laura G\\u00f3mez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/formato_a/docente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Va NotEmpty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"objetivoGeneral\": \"Desarrollar una aplicaci\\u00f3n web para reservas de laboratorios\",\r\n  \"objetivosEspecificos\": \"Analizar requisitos; Dise\\u00f1ar arquitectura; Implementar sistema\",\r\n  \"nombreEstudiante1\": \"Juan P\\u00e9rez\",\r\n  \"nombreEstudiante2\": \"Laura G\\u00f3mez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/formato_a/docente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "va Email",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VALIDACIÓN PERSONALIZADA",
+			"item": [
+				{
+					"name": "infinitivo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Sistema de Reservas de Laboratorios\",\r\n  \"objetivoGeneral\": \"Desarrollar una aplicaci\\u00f3n web para reservas de laboratorios\",\r\n  \"objetivosEspecificos\": \"Analizar requisitos; Dise\\u00f1ar arquitectura;Implemento sistema\",\r\n  \"nombreEstudiante1\": \"Juan P\\u00e9rez\",\r\n  \"nombreEstudiante2\": \"Laura G\\u00f3mez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/formato_a/docente/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "servicio REST",
+			"item": [
+				{
+					"name": "Crear Formato A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Desarrollo de una API REST\",\r\n  \"objetivoGeneral\": \"Desarrollar una aplicaci\\u00f3n web para reservas de laboratorios\",\r\n  \"objetivosEspecificos\": \"Analizar requisitos; Dise\\u00f1ar arquitectura; Implementar sistema\",\r\n  \"nombreEstudiante1\": \"Juan P\\u00e9rez\",\r\n  \"nombreEstudiante2\": \"Laura G\\u00f3mez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/formato_a/docente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Observación",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Primera observaci\\u00f3n creada con \\u00e9xito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/observacion/formato_a/1?idsDocentes=1&idsDocentes=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"observacion",
+								"formato_a",
+								"1"
+							],
+							"query": [
+								{
+									"key": "idsDocentes",
+									"value": "1"
+								},
+								{
+									"key": "idsDocentes",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Observaciones por Formato A",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/api/observacion/formato_a/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar formatos A por docente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/formato_a/docente?correoDocente=danielgcia@unicacua.edu.co",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"formato_a",
+								"docente"
+							],
+							"query": [
+								{
+									"key": "correoDocente",
+									"value": "danielgcia@unicacua.edu.co"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar docentes por grupo y patrón",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Listar formatos A por docente entre fechas",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
